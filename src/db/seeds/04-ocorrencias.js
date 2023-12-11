@@ -1,11 +1,12 @@
 import reader from 'xlsx'
 
-const xlsxFilePath = '../../../node-postgres/data/ResponsavelDP.xlsx';
+const xlsxFilePath = '../../../node-postgres/data/ocorrencias.xlsx';
 
 export async function seed(knex) {
-  await knex('responsavel').del()
+  await knex('ocorrencias').del()
 
   const dataFile = reader.readFile(xlsxFilePath)
+
   let data = []
 
   const sheets = dataFile.SheetNames
@@ -17,12 +18,27 @@ export async function seed(knex) {
     })
   }
   const seeds = data.map(row => {
-    return knex('responsavel').insert({
+    return knex('ocorrencias').insert({
+      codOcorrencia: row.idRegistro,
       codDP: row.codDP,
-      nome: row.delegado,
+      codIBGE: row.codIBGE,
+      ano: row.ano,
+      mes: row.mes,
+      ocorrencia: row.ocorrencia,
+      quantidade: row.qtde
+
     });
 
   });
+
+  // idRegistro: 98891,
+  // codDP: 109,
+  // codIBGE: 3305406,
+  // ano: 2020,
+  // mes: 5,
+  // ocorrencia: 'lesao_corp_dolosa',
+  // qtde: 4
+
 
 
   return Promise.all(seeds);
