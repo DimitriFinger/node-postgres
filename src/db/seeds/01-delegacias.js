@@ -11,7 +11,7 @@ export async function seed(knex) {
       const seeds = rows.map(row => {
         if (row[0] && row[1] && row[2]) {
           return knex('delegacias').insert({
-            codDP: Number(row[0]), // Replace with the correct index based on your CSV structure
+            codDP: Number(row[0]),
             nome: String(row[1]),
             endereco: String(row[2])
           });
