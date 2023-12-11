@@ -3,7 +3,7 @@ const csvFilePath = '../../../node-postgres/data/Municipio.csv';
 
 export async function seed(knex) {
   await knex('municipios').del()
-
+  console.log("Inserindo dados na tabela municipios.")
   await fs.promises.readFile(csvFilePath, 'utf-8')
     .then(data => {
       const rows = data.split('\n').map(row => row.split(',')).slice(1)

@@ -4,7 +4,7 @@ const xlsxFilePath = '../../../node-postgres/data/ocorrencias.xlsx';
 
 export async function seed(knex) {
   await knex('ocorrencias').del()
-
+  console.log("Inserindo dados na tabela ocorrencias.")
   const dataFile = reader.readFile(xlsxFilePath)
 
   let data = []

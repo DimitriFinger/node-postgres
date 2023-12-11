@@ -9,7 +9,7 @@ export function up(knex) {
             table.string('mes', 2).notNullable();
             table.string('ocorrencia', 100).notNullable();
             table.integer('quantidade').notNullable();
-        })
+        }).then(console.log("Tabela ocorrencias criada."))
     )
 }
 

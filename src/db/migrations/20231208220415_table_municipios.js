@@ -5,7 +5,7 @@ export function up(knex) {
             table.integer('codIBGE').unsigned().primary().index();
             table.string('municipio', 100).notNullable();
             table.string('regiao', 25).notNullable();
-        })
+        }).then(console.log("Tabela municipios criada."))
     )
 }
 
