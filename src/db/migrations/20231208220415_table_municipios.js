@@ -4,7 +4,7 @@ export function up(knex) {
         knex.schema.createTable('municipios', table => {
             table.integer('codIBGE').unsigned().primary().index();
             table.string('municipio', 100).notNullable();
-            table.string('região', 25).notNullable();
+            table.string('regiao', 25).notNullable();
         })
     )
 }

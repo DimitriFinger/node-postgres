@@ -4,7 +4,7 @@ export function up(knex) {
         knex.schema.createTable('delegacias', table => {
             table.integer('codDP').unsigned().primary().index();
             table.string('nome', 100).notNullable();
-            table.string('endereço', 255).notNullable();
+            table.string('endereco', 255).notNullable();
         })
     )
 }
