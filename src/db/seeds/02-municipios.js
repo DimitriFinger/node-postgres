@@ -11,9 +11,9 @@ export async function seed(knex) {
       const seeds = rows.map(row => {
         if (row[0] && row[1] && row[2]) {
           return knex('municipios').insert({
-            codIBGE: Number(row[0]),
-            municipio: String(row[1]),
-            regiao: String(row[2])
+            codIBGE: row[0],
+            municipio: row[1],
+            regiao: row[2]
           });
         }
       });
