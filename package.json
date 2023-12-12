@@ -6,14 +6,17 @@
   "type": "module",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node src/server.js ",
+    "start": "nodemon src/server.js ",
     "migrate": "knex migrate:latest --knexfile src/db/knexfile.js"
   },
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "exceljs": "^4.4.0",
     "express": "^4.18.2",
     "knex": "^3.0.1",
-    "pg": "^8.11.3"
+    "nodemon": "^3.0.2",
+    "pg": "^8.11.3",
+    "xlsx": "^0.18.5"
   }
 }
