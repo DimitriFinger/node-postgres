@@ -6,6 +6,7 @@ class RankRouboVeiculos {
             .select('municipios.municipio as Municipio', db.raw('SUM(ocorrencias.quantidade) as Total'))
             .from('municipios')
             .join('ocorrencias', 'ocorrencias.codIBGE', '=', 'municipios.codIBGE')
+            .where('ocorrencias.ocorrencia', '=', 'roubo_veiculo')
             .groupBy('municipios.municipio')
             .orderByRaw('SUM(ocorrencias.quantidade) DESC');
         return data
