@@ -13,7 +13,7 @@ export async function seed(knex) {
           return knex('municipios').insert({
             codIBGE: row[0],
             municipio: row[1],
-            regiao: row[2]
+            regiao: String(row[2])
           });
         }
       });
